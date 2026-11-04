@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitácora Digital • Semana 12 | Proyecto Final Diseño Digital</title>
-    <!-- Tipografías de corte editorial y arquitectura -->
+    <title>Bitácora Digital • Proyecto Final | Diseño Digital U. Sergio Arboleda</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
@@ -15,7 +14,7 @@
             --bg-card: #FFFFFF;
             --bg-dark: #1A1A18;
             --text-main: #2C2C2A;
-            --text-muted: #6E6E6A;
+            --text-muted: #5E5E5A;
             --accent-terracota: #C86D51;
             --accent-oliva: #4A5D4E;
             --accent-sand: #E8E3D9;
@@ -25,299 +24,69 @@
             --font-mono: 'Space Grotesk', sans-serif;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-main); color: var(--text-main); font-family: var(--font-body); line-height: 1.7; }
+        .wrapper { max-width: 1140px; margin: 0 auto; padding: 40px 24px 80px; }
 
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+        header.journal-header { border-bottom: 2px solid var(--border-light); padding-bottom: 32px; margin-bottom: 48px; }
+        .meta-tag { font-family: var(--font-mono); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-terracota); font-weight: 600; margin-bottom: 12px; display: block; }
+        h1.journal-title { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.1; color: var(--bg-dark); margin-bottom: 16px; }
+        .journal-subtitle { font-size: 1.15rem; color: var(--text-muted); max-width: 850px; }
 
-        /* Container Editorial */
-        .wrapper {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 40px 24px 80px;
-        }
+        .project-context-box { margin-top: 28px; background-color: var(--accent-sand); border-radius: 8px; padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .context-item span { display: block; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); }
+        .context-item strong { font-size: 0.95rem; color: var(--bg-dark); font-weight: 600; }
 
-        /* Header Principal */
-        header.journal-header {
-            border-bottom: 1px solid var(--border-light);
-            padding-bottom: 32px;
-            margin-bottom: 48px;
-        }
+        nav.tab-nav { display: flex; gap: 12px; border-bottom: 1px solid var(--border-light); margin-bottom: 40px; overflow-x: auto; padding-bottom: 4px; }
+        .tab-btn { background: none; border: none; font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--text-muted); padding: 12px 24px; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.25s ease; white-space: nowrap; }
+        .tab-btn:hover { color: var(--bg-dark); }
+        .tab-btn.active { color: var(--accent-terracota); border-bottom-color: var(--accent-terracota); }
 
-        .meta-tag {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent-terracota);
-            font-weight: 600;
-            margin-bottom: 12px;
-            display: block;
-        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
 
-        h1.journal-title {
-            font-family: var(--font-display);
-            font-size: clamp(2.2rem, 5vw, 3.4rem);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            color: var(--bg-dark);
-            margin-bottom: 16px;
-        }
+        .section-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 40px; margin-bottom: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+        .section-title { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--bg-dark); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+        .section-title::before { content: ''; display: inline-block; width: 8px; height: 26px; background-color: var(--accent-terracota); border-radius: 4px; }
 
-        .journal-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 780px;
-            font-weight: 400;
-        }
+        .concept-highlight { background-color: #FAF8F5; border-left: 5px solid var(--accent-terracota); padding: 28px 32px; border-radius: 0 12px 12px 0; font-size: 1.12rem; line-height: 1.85; color: #1A1A18; margin: 24px 0; }
 
-        .project-context-box {
-            margin-top: 28px;
-            background-color: var(--accent-sand);
-            border-radius: 8px;
-            padding: 20px 24px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-        }
+        .canvas-container { width: 100%; background-color: #111311; border-radius: 12px; padding: 28px; margin: 24px 0; display: flex; flex-direction: column; align-items: center; }
+        canvas#schematicCanvas { max-width: 100%; height: auto; border-radius: 8px; background: #181A18; }
+        .canvas-controls { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
+        .btn-ctrl { background-color: #262926; color: #F7F5F0; border: 1px solid #3A3D3A; padding: 10px 18px; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; cursor: pointer; transition: all 0.2s ease; }
+        .btn-ctrl:hover { background-color: var(--accent-terracota); border-color: var(--accent-terracota); }
 
-        .context-item span {
-            display: block;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
+        .topics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-top: 28px; }
+        .topic-card { background-color: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
+        .topic-card h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--bg-dark); margin-bottom: 14px; }
+        .topic-svg-wrapper { width: 100%; height: 180px; background-color: var(--bg-main); border-radius: 8px; margin: 20px 0; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 12px; border: 1px solid var(--border-light); }
 
-        .context-item strong {
-            font-size: 0.95rem;
-            color: var(--bg-dark);
-            font-weight: 600;
-        }
+        .badge-score { display: inline-flex; align-items: center; gap: 6px; background-color: rgba(74, 93, 78, 0.12); color: var(--accent-oliva); font-family: var(--font-mono); font-size: 0.82rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; margin-bottom: 16px; }
 
-        /* Navegación por pestañas */
-        nav.tab-nav {
-            display: flex;
-            gap: 12px;
-            border-bottom: 1px solid var(--border-light);
-            margin-bottom: 40px;
-            overflow-x: auto;
-            padding-bottom: 4px;
-        }
-
-        .tab-btn {
-            background: none;
-            border: none;
-            font-family: var(--font-display);
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            padding: 12px 20px;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: all 0.25s ease;
-            white-space: nowrap;
-        }
-
-        .tab-btn:hover {
-            color: var(--bg-dark);
-        }
-
-        .tab-btn.active {
-            color: var(--accent-terracota);
-            border-bottom-color: var(--accent-terracota);
-        }
-
-        /* Contenido de pestañas */
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Componentes de Tarjetas y Secciones */
-        .section-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: 36px;
-            margin-bottom: 32px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-        }
-
-        .section-title {
-            font-family: var(--font-display);
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--bg-dark);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .section-title::before {
-            content: '';
-            display: inline-block;
-            width: 8px;
-            height: 24px;
-            background-color: var(--accent-terracota);
-            border-radius: 4px;
-        }
-
-        /* Bloque Destacado de Concepto */
-        .concept-highlight {
-            background-color: #FAF8F5;
-            border-left: 4px solid var(--accent-terracota);
-            padding: 24px 28px;
-            border-radius: 0 12px 12px 0;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #1A1A18;
-            font-weight: 400;
-            margin: 20px 0;
-        }
-
-        /* Contenedor del Esquema Básico en Canvas */
-        .canvas-container {
-            width: 100%;
-            background-color: #111311;
-            border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        canvas#schematicCanvas {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            background: #181A18;
-        }
-
-        .canvas-controls {
-            display: flex;
-            gap: 16px;
-            margin-top: 16px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn-ctrl {
-            background-color: #262926;
-            color: #F7F5F0;
-            border: 1px solid #3A3D3A;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .btn-ctrl:hover {
-            background-color: var(--accent-terracota);
-            border-color: var(--accent-terracota);
-        }
-
-        /* Grid temático */
-        .topics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 24px;
-        }
-
-        .topic-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: 10px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .topic-card h4 {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            color: var(--bg-dark);
-            margin-bottom: 12px;
-        }
-
-        .topic-svg-wrapper {
-            width: 100%;
-            height: 160px;
-            background-color: var(--bg-main);
-            border-radius: 8px;
-            margin: 16px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            padding: 12px;
-        }
-
-        .badge-score {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background-color: rgba(74, 93, 78, 0.1);
-            color: var(--accent-oliva);
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-        }
-
-        footer {
-            margin-top: 60px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border-light);
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-family: var(--font-mono);
-        }
+        footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono); }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
-    <!-- Header Académico -->
     <header class="journal-header">
         <span class="meta-tag">Universidad Sergio Arboleda • Escuela de Comunicación e Industrias Digitales</span>
         <h1 class="journal-title">PULSO DIGITAL — Módulo Experiencial Efímero</h1>
-        <p class="journal-subtitle">Entrega de Proyecto Final: Registro en bitácora del concepto, esquema básico dimensional (6-8 m²) y síntesis técnica de investigación temática.</p>
+        <p class="journal-subtitle">Entrega de Proyecto Final (Semana 12): Registro exhaustivo en bitácora digital del concepto estratégico, esquema básico dimensional (6-8 m²) y marco conceptual de investigación.</p>
         
         <div class="project-context-box">
             <div class="context-item">
-                <span>Pretexto</span>
-                <strong>Profesionalízate con nosotros</strong>
+                <span>Pretexto Académico</span>
+                <strong>"Profesionalízate con nosotros"</strong>
             </div>
             <div class="context-item">
                 <span>Público Objetivo</span>
                 <strong>Estudiantes Grado 11° (Región Caribe)</strong>
             </div>
             <div class="context-item">
-                <span>Área Espacial</span>
-                <strong>6.0 m² a 8.0 m² (Itinerante)</strong>
+                <span>Espacialidad Requerida</span>
+                <strong>Área de 6.0 m² a 8.0 m² (Itinerante)</strong>
             </div>
             <div class="context-item">
                 <span>Ubicación Inicial</span>
@@ -326,80 +95,94 @@
         </div>
     </header>
 
-    <!-- Navegación por Secciones -->
     <nav class="tab-nav">
-        <button class="tab-btn active" onclick="switchTab('tab-concepto')">1. Concepto y Esquema Básico</button>
-        <button class="tab-btn" onclick="switchTab('tab-cultura')">2. Cultura y Diseño Digital</button>
-        <button class="tab-btn" onclick="switchTab('tab-arquitectura')">3. Arquitectura Efímera (7 Sistemas)</button>
+        <button class="tab-btn active" onclick="switchTab('tab-concepto', event)">1. Concepto y Esquema Básico</button>
+        <button class="tab-btn" onclick="switchTab('tab-cultura', event)">2. Cultura y Diseño Digital</button>
+        <button class="tab-btn" onclick="switchTab('tab-arquitectura', event)">3. Arquitectura Efímera (7 Sistemas)</button>
     </nav>
 
-    <!-- Pestaña 1: Concepto y Esquema Básico -->
+    <!-- SECCIÓN 1: CONCEPTO Y ESQUEMA BÁSICO -->
     <div id="tab-concepto" class="tab-content active">
-        
-        <!-- Párrafo de Concepto (Criterio 1: 5.0 Sobresaliente) -->
         <article class="section-card">
-            <span class="badge-score">Rúbrica: Concepto de Alto Impacto (25%)</span>
-            <h2 class="section-title">Concepto del Nuevo Producto-Experiencia</h2>
-            <p><strong>Párrafo Conceptual Unificado:</strong></p>
+            <span class="badge-score">Criterio 1: Concepto de Alto Impacto — Valor 25% (Puntaje Máximo: 5.0)</span>
+            <h2 class="section-title">Proposición Conceptual del Producto-Experiencia</h2>
+            <p style="color: var(--text-muted); margin-bottom: 12px;"><strong>Párrafo Conceptual Unificado (Redacción de Origen Etimológico y Pensamiento Estratégico):</strong></p>
+            
             <div class="concept-highlight">
                 Concebido bajo la premisa de transformar la divulgación vocacional tradicional en un ecosistema vivo de interacción sensorial, <strong>PULSO DIGITAL</strong> se erige como una instalación itinerante e inmersiva de 6 a 8 m² que sintetiza la sustancia creativa del Programa de Diseño Digital de la Universidad Sergio Arboleda mediante una arquitectura efímera fotosensible y adaptable. El proyecto articula una envolvente escualizable apoyada en cubiertas tensadas y modulación Octanorm que reacciona lumínica y gestualmente a la presencia del visitante, configurando un diálogo directo donde el estudiante de grado 11° deja de ser un espectador pasivo para convertirse en el co-creador de una pieza multimedia en tiempo real. Esta propuesta trasciende los convencionalismos feriales al hibridar la calidez tectónica del diseño escénico con la inmediatez del código interactivo, proyectando un paradigma singular en la relación sujeto-objeto-contexto que posiciona al Diseño Digital no solo como una carrera universitaria, sino como el motor creativo que da forma a la cultura contemporánea.
             </div>
+
+            <div style="margin-top: 24px; background: var(--bg-main); padding: 20px; border-radius: 8px;">
+                <h4 style="font-family: var(--font-display); margin-bottom: 8px;">Justificación de Autenticidad y Articulación:</h4>
+                <p style="font-size: 0.95rem; color: var(--text-muted);">
+                    Conforme al análisis etimológico (designar = diseñar / concebir = estructurar ideas), el concepto trasciende la simple forma estética[cite: 1]. Articula la racionalidad (optimización modular en 7.5 m², transporte ágil entre el Campus Rodrigo Noguera Laborde, Campus Centro y Barranquilla) con la sensibilidad (luz proyectiva, inmersión sonora y reactividad gestual)[cite: 1].
+                </p>
+            </div>
         </article>
 
-        <!-- Esquema Básico Visual (Criterio 2: 5.0 Sobresaliente) -->
         <article class="section-card">
-            <span class="badge-score">Rúbrica: Representación Visual en Canvas (25%)</span>
-            <h2 class="section-title">Esquema Básico Espacial y Geométrico</h2>
+            <span class="badge-score">Criterio 2: Esquema Básico Visual — Valor 25% (Puntaje Máximo: 5.0)</span>
+            <h2 class="section-title">Esquema Básico Espacial y Representación Diagramática</h2>
             <p style="color: var(--text-muted); margin-bottom: 16px;">
-                Representación esquemática a escala en planta de la articulación espacial de 6 a 8 m². El gráfico expresa la zonificación geométrica, los puntos de interacción gestual y el recorrido del visitante mediante un sistema de modulación escualizable.
+                Composición gráfica formal a escala que expresa de baja complejidad la geometría, el contraste, la proporción y los flujos de recorrido del módulo itinerante dentro de la limitante de 6 a 8 m²[cite: 1]. Utiliza el lienzo interactivo a continuación para alternar entre las capas analíticas del esquema.
             </p>
 
             <div class="canvas-container">
-                <canvas id="schematicCanvas" width="700" height="420"></canvas>
+                <canvas id="schematicCanvas" width="750" height="440"></canvas>
                 <div class="canvas-controls">
-                    <button class="btn-ctrl" onclick="drawSchema('default')">Vista General (Planta)</button>
-                    <button class="btn-ctrl" onclick="drawSchema('flow')">Flujo de Circulación</button>
+                    <button class="btn-ctrl" onclick="drawSchema('default')">Planta Arquitectónica</button>
+                    <button class="btn-ctrl" onclick="drawSchema('flow')">Flujo e Itinerario</button>
                     <button class="btn-ctrl" onclick="drawSchema('interaction')">Zonas de Interacción</button>
+                    <button class="btn-ctrl" onclick="drawSchema('mandala')">Patrón Mandala (Expansión)</button>
                 </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                <div style="background: var(--bg-main); padding: 16px; border-radius: 8px;">
-                    <h4 style="font-family: var(--font-display); margin-bottom: 6px;">Proporción y Geometría</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Módulo ortogonal de 3.0m x 2.5m (7.5 m²) con paneles escualizables a 45° para optimizar el acceso y evitar cuellos de botella en pasillos feriales.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 24px;">
+                <div style="background: var(--bg-main); padding: 20px; border-radius: 8px; border: 1px solid var(--border-light);">
+                    <h4 style="font-family: var(--font-display); margin-bottom: 6px; color: var(--accent-terracota);">Proporción y Dimensionamiento</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Configuración en planta de 3.00 m x 2.50 m (Área bruta: 7.50 m²), enmarcada estrictamente en el rango normativo de 6 a 8 m² exigido para el Campus Rodrigo Noguera Laborde[cite: 1].</p>
                 </div>
-                <div style="background: var(--bg-main); padding: 16px; border-radius: 8px;">
-                    <h4 style="font-family: var(--font-display); margin-bottom: 6px;">Contraste y Materialidad</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Núcleo de aluminio anodizado negro (Sistema Octanorm) en contraste con membranas textiles blancas de alta reflectancia proyectiva.</p>
+                <div style="background: var(--bg-main); padding: 20px; border-radius: 8px; border: 1px solid var(--border-light);">
+                    <h4 style="font-family: var(--font-display); margin-bottom: 6px; color: var(--accent-oliva);">Contraste y Geometría</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Diagonales articuladas a 45° en los paneles escualizables frontales para capturar el flujo dinámico de visitantes desde los pasillos feriales principales.</p>
                 </div>
             </div>
         </article>
     </div>
 
-    <!-- Pestaña 2: Cultura y Diseño Digital -->
+    <!-- SECCIÓN 2: CULTURA Y DISEÑO DIGITAL -->
     <div id="tab-cultura" class="tab-content">
         <article class="section-card">
-            <span class="badge-score">Rúbrica: Exploración y Síntesis Informativa (25%)</span>
-            <h2 class="section-title">La Cultura Digital y el Diseño Digital</h2>
+            <span class="badge-score">Criterio 3: Información de Cultura y Diseño Digital — Valor 25% (Puntaje Máximo: 5.0)</span>
+            <h2 class="section-title">Marco de Investigación: Cultura y Carrera de Diseño Digital</h2>
+
+            <div style="margin-bottom: 32px; font-size: 1rem; color: var(--text-muted);">
+                Síntesis rigurosa de fuentes secundarias sobre la transformación de las industrias creativas digitales y la estructura curricular del programa académico en la Universidad Sergio Arboleda[cite: 1].
+            </div>
 
             <div class="topics-grid">
                 <!-- Tarjeta 1: Cultura Digital -->
                 <div class="topic-card">
                     <div>
                         <h4>1. La Cultura Digital</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">
-                            <strong>Definición e Historia:</strong> Conjunto de prácticas, comportamientos y trasformaciones sociales derivadas de la adopción masiva de tecnologías de la información y la comunicación desde la revolución informática a finales del siglo XX.<br><br>
-                            <strong>Categorías y Tendencias:</strong> Cibercultura, identidad digital, economías colaborativas, IA generativa, entornos inmersivos y diseño centrado en el usuario.
+                        <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 12px;">
+                            <strong>Definición e Historia:</strong> Fenómeno socio-técnico que comprende la reconfiguración de las interacciones humanas a partir de la convergencia informática, la Internet de banda ancha y la movilidad computacional iniciada a finales del siglo XX[cite: 1].
+                        </p>
+                        <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 12px;">
+                            <strong>Categorías Clave:</strong> Cibercultura, transmediación, virtualidad inmersiva, inteligencia artificial generativa y ecosistemas abiertos[cite: 1].
+                        </p>
+                        <p style="font-size: 0.92rem; color: var(--text-muted);">
+                            <strong>Tendencias Contemporáneas:</strong> Interacción natural (NUI), computación espacial, experiencias Web3, ética del algoritmo y diseño de interfaces reactivas socio-ambientales[cite: 1].
                         </p>
                     </div>
                     <div class="topic-svg-wrapper">
                         <svg width="100%" height="100%" viewBox="0 0 200 120">
                             <rect width="200" height="120" fill="#F7F5F0" rx="6"/>
-                            <circle cx="100" cy="60" r="35" stroke="#C86D51" stroke-width="2" fill="none" stroke-dasharray="4 4"/>
-                            <circle cx="70" cy="60" r="20" stroke="#4A5D4E" stroke-width="1.5" fill="none"/>
-                            <circle cx="130" cy="60" r="20" stroke="#1A1A18" stroke-width="1.5" fill="none"/>
-                            <path d="M 40 60 Q 100 20 160 60 Q 100 100 40 60 Z" fill="none" stroke="#C86D51" stroke-width="1.5"/>
-                            <circle cx="100" cy="60" r="5" fill="#1A1A18"/>
+                            <circle cx="100" cy="60" r="40" stroke="#C86D51" stroke-width="2" fill="none" stroke-dasharray="4 4"/>
+                            <circle cx="65" cy="60" r="24" stroke="#4A5D4E" stroke-width="1.5" fill="none"/>
+                            <circle cx="135" cy="60" r="24" stroke="#1A1A18" stroke-width="1.5" fill="none"/>
+                            <path d="M 30 60 Q 100 10 170 60 Q 100 110 30 60 Z" fill="none" stroke="#C86D51" stroke-width="1.5"/>
+                            <circle cx="100" cy="60" r="6" fill="#1A1A18"/>
                         </svg>
                     </div>
                 </div>
@@ -407,22 +190,28 @@
                 <!-- Tarjeta 2: Diseño Digital U. Sergio Arboleda -->
                 <div class="topic-card">
                     <div>
-                        <h4>2. El Diseño Digital (Sergio Arboleda)</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">
-                            <strong>Perfil Profesional:</strong> Creador estratégico capaz de articular tecnología, estética y narrativa para solucionar problemas complejos a través de productos y servicios digitales.<br><br>
-                            <strong>Campos de Acción:</strong> Prototipado UI/UX, animación 3D, diseño interactivo, gestión de productos digitales, realidad aumentada y dirección de arte digital.
+                        <h4>2. Diseño Digital en la U. Sergio Arboleda</h4>
+                        <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 12px;">
+                            <strong>Definición Académica:</strong> Disciplina proyectual estratégica que integra el pensamiento de diseño, la tecnología interactiva y la narrativa transmedia dentro de la Escuela de Comunicación e Industrias Digitales[cite: 1].
+                        </p>
+                        <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 12px;">
+                            <strong>Perfil Profesional:</strong> Diseñador estratega capaz de conceptualizar, prototipar y dirigir productos digitales multimediales, experiencias UI/UX y soluciones centradas en el usuario[cite: 1].
+                        </p>
+                        <p style="font-size: 0.92rem; color: var(--text-muted);">
+                            <strong>Campos de Acción y Proyección:</strong> Dirección de arte digital, arquitectura de información UI/UX, desarrollo de animación/3D, instalaciones inmersivas y gestión de innovación en la Región Caribe e internacional[cite: 1].
                         </p>
                     </div>
                     <div class="topic-svg-wrapper">
                         <svg width="100%" height="100%" viewBox="0 0 200 120">
                             <rect width="200" height="120" fill="#F7F5F0" rx="6"/>
-                            <rect x="40" y="25" width="120" height="70" rx="4" fill="none" stroke="#1A1A18" stroke-width="2"/>
-                            <line x1="40" y1="45" x2="160" y2="45" stroke="#E2DDD5" stroke-width="1.5"/>
-                            <circle cx="55" cy="35" r="3" fill="#C86D51"/>
-                            <circle cx="67" cy="35" r="3" fill="#4A5D4E"/>
-                            <rect x="55" y="55" width="40" height="30" fill="#E8E3D9" rx="2"/>
-                            <line x1="105" y1="60" x2="145" y2="60" stroke="#1A1A18" stroke-width="2"/>
-                            <line x1="105" y1="72" x2="130" y2="72" stroke="#C86D51" stroke-width="2"/>
+                            <rect x="35" y="20" width="130" height="80" rx="6" fill="none" stroke="#1A1A18" stroke-width="2"/>
+                            <line x1="35" y1="42" x2="165" y2="42" stroke="#E2DDD5" stroke-width="1.5"/>
+                            <circle cx="50" cy="31" r="3.5" fill="#C86D51"/>
+                            <circle cx="63" cy="31" r="3.5" fill="#4A5D4E"/>
+                            <circle cx="76" cy="31" r="3.5" fill="#E8E3D9"/>
+                            <rect x="50" y="54" width="45" height="34" fill="#E8E3D9" rx="3"/>
+                            <line x1="105" y1="60" x2="150" y2="60" stroke="#1A1A18" stroke-width="2.5"/>
+                            <line x1="105" y1="74" x2="135" y2="74" stroke="#C86D51" stroke-width="2.5"/>
                         </svg>
                     </div>
                 </div>
@@ -430,37 +219,49 @@
         </article>
     </div>
 
-    <!-- Pestaña 3: Arquitectura Efímera -->
+    <!-- SECCIÓN 3: ARQUITECTURA EFÍMERA -->
     <div id="tab-arquitectura" class="tab-content">
         <article class="section-card">
-            <span class="badge-score">Rúbrica: Síntesis de los 7 Temas inherentes (25%)</span>
-            <h2 class="section-title">Sistemas Constructivos para Arquitectura Efímera</h2>
+            <span class="badge-score">Criterio 4: Síntesis de Temas de Arquitectura Efímera — Valor 25% (Puntaje Máximo: 5.0)</span>
+            <h2 class="section-title">Análisis de los 7 Sistemas Constructivos Efímeros</h2>
             <p style="color: var(--text-muted); margin-bottom: 24px;">
-                Análisis de tipologías estructurales aplicadas al diseño de estands e instalaciones feriales itinerantes.
+                Síntesis técnica y representación gráfica de las tipologías estructurales aplicadas al diseño de instalaciones feriales e itinerantes[cite: 1].
             </p>
 
             <div class="topics-grid">
-                <!-- 1. Neumáticas -->
+                <!-- 1. Estructuras Neumáticas -->
                 <div class="topic-card">
                     <h4>1. Estructuras Neumáticas</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Sistemas soportados por aire a presión continua. Ofrecen rapidez de montaje, bajo peso y gran volumen orgánico para instalaciones envolventes.</p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
+                        <strong>Principio:</strong> Membranas flexibles mantenidas en tensión mediante la diferencia de presión de aire interior continuada[cite: 1].
+                    </p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">
+                        <strong>Aplicación en Stand:</strong> Creación de domos acústicos o envolventes orgánicas de montaje ultrarrápido sin soportes rígidos internos[cite: 1].
+                    </p>
                     <div class="topic-svg-wrapper">
                         <svg width="100%" height="100%" viewBox="0 0 160 100">
-                            <path d="M 20 80 Q 80 10 140 80 Z" fill="#E8E3D9" stroke="#C86D51" stroke-width="2"/>
-                            <path d="M 40 80 Q 80 30 120 80 Z" fill="none" stroke="#4A5D4E" stroke-width="1" stroke-dasharray="3 3"/>
+                            <path d="M 15 85 Q 80 5 145 85 Z" fill="#E8E3D9" stroke="#C86D51" stroke-width="2"/>
+                            <path d="M 35 85 Q 80 25 125 85 Z" fill="none" stroke="#4A5D4E" stroke-width="1.5" stroke-dasharray="3 3"/>
+                            <line x1="15" y1="85" x2="145" y2="85" stroke="#1A1A18" stroke-width="2"/>
                         </svg>
                     </div>
                 </div>
 
-                <!-- 2. Escualizables -->
+                <!-- 2. Escualizables / Abatibles -->
                 <div class="topic-card">
-                    <h4>2. Estructuras Escualizables / Plegables</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Sistemas articulados tipo tijera que permiten desplegar superficies tridimensionales a partir de un volumen compacto de transporte.</p>
+                    <h4>2. Estructuras Escualizables / Abatibles</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
+                        <strong>Principio:</strong> Mecanismos articulados (tijera o pivote) que permiten el despliegue cinemático y la transformación volumétrica[cite: 1].
+                    </p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">
+                        <strong>Aplicación en Stand:</strong> Muros adaptables para ajustar el ingreso según el flujo de estudiantes en el Campus Noguera Laborde[cite: 1].
+                    </p>
                     <div class="topic-svg-wrapper">
                         <svg width="100%" height="100%" viewBox="0 0 160 100">
-                            <line x1="30" y1="20" x2="130" y2="80" stroke="#1A1A18" stroke-width="2"/>
-                            <line x1="30" y1="80" x2="130" y2="20" stroke="#1A1A18" stroke-width="2"/>
-                            <circle cx="80" cy="50" r="5" fill="#C86D51"/>
+                            <line x1="25" y1="20" x2="135" y2="80" stroke="#1A1A18" stroke-width="2.5"/>
+                            <line x1="25" y1="80" x2="135" y2="20" stroke="#1A1A18" stroke-width="2.5"/>
+                            <circle cx="80" cy="50" r="6" fill="#C86D51"/>
+                            <path d="M 30 50 Q 80 20 130 50" fill="none" stroke="#4A5D4E" stroke-width="1.5" stroke-dasharray="2 2"/>
                         </svg>
                     </div>
                 </div>
@@ -468,26 +269,38 @@
                 <!-- 3. Cubiertas de Membrana -->
                 <div class="topic-card">
                     <h4>3. Cubiertas de Membranas</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Superficies textiles pretensadas que trabajan exclusivamente a tracción, generando formas hiperbólicas livianas y de alta estética.</p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
+                        <strong>Principio:</strong> Superficies textiles estiradas entre puntos de anclaje rígidos que trabajan únicamente bajo esfuerzo de tracción pura[cite: 1].
+                    </p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">
+                        <strong>Aplicación en Stand:</strong> Techos parabólicos ligeros ideales para filtrado de luz y proyección de mapeo digital[cite: 1].
+                    </p>
                     <div class="topic-svg-wrapper">
                         <svg width="100%" height="100%" viewBox="0 0 160 100">
-                            <path d="M 20 30 Q 80 80 140 30 Q 80 10 20 30 Z" fill="#E8E3D9" stroke="#1A1A18" stroke-width="2"/>
-                            <line x1="20" y1="30" x2="20" y2="90" stroke="#4A5D4E" stroke-width="2"/>
-                            <line x1="140" y1="30" x2="140" y2="90" stroke="#4A5D4E" stroke-width="2"/>
+                            <path d="M 20 30 Q 80 85 140 30 Q 80 5 20 30 Z" fill="#E8E3D9" stroke="#1A1A18" stroke-width="2"/>
+                            <line x1="20" y1="30" x2="20" y2="90" stroke="#4A5D4E" stroke-width="2.5"/>
+                            <line x1="140" y1="30" x2="140" y2="90" stroke="#4A5D4E" stroke-width="2.5"/>
                         </svg>
                     </div>
                 </div>
 
-                <!-- 4. Tensegrity -->
+                <!-- 4. Tensgrity -->
                 <div class="topic-card">
                     <h4>4. Estructuras Tensegrity</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Sistemas autoequilibrados de barras aisladas comprimidas flotando dentro de una red continua de tirantes en tracción.</p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
+                        <strong>Principio:</strong> Equilibrio estructural entre componentes comprimidos discontinuos (barras) suspendidos en una red continua traccionada (cables)[cite: 1].
+                    </p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">
+                        <strong>Aplicación en Stand:</strong> Esculturas centrales o tótems informativos que parecen flotar sin soportes pesados[cite: 1].
+                    </p>
                     <div class="topic-svg-wrapper">
                         <svg width="100%" height="100%" viewBox="0 0 160 100">
-                            <line x1="40" y1="20" x2="120" y2="80" stroke="#1A1A18" stroke-width="3"/>
-                            <line x1="120" y1="20" x2="40" y2="80" stroke="#1A1A18" stroke-width="3"/>
-                            <line x1="40" y1="20" x2="120" y2="20" stroke="#C86D51" stroke-width="1.5" stroke-dasharray="2 2"/>
-                            <line x1="40" y1="80" x2="120" y2="80" stroke="#C86D51" stroke-width="1.5" stroke-dasharray="2 2"/>
+                            <line x1="35" y1="15" x2="125" y2="85" stroke="#1A1A18" stroke-width="3"/>
+                            <line x1="125" y1="15" x2="35" y2="85" stroke="#1A1A18" stroke-width="3"/>
+                            <line x1="35" y1="15" x2="125" y2="15" stroke="#C86D51" stroke-width="1.5" stroke-dasharray="3 3"/>
+                            <line x1="35" y1="85" x2="125" y2="85" stroke="#C86D51" stroke-width="1.5" stroke-dasharray="3 3"/>
+                            <line x1="35" y1="15" x2="35" y2="85" stroke="#4A5D4E" stroke-width="1.5"/>
+                            <line x1="125" y1="15" x2="125" y2="85" stroke="#4A5D4E" stroke-width="1.5"/>
                         </svg>
                     </div>
                 </div>
@@ -495,12 +308,18 @@
                 <!-- 5. Sistema Octanorm -->
                 <div class="topic-card">
                     <h4>5. Sistema Octanorm</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Perfilería octagonal de aluminio y travesaños modulares estándar. Es el estándar mundial para montaje rápido y limpio de stands feriales.</p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
+                        <strong>Principio:</strong> Perfiles modulares de aluminio con sección octagonal y cerraduras excéntricas para unión de paneles estandarizados[cite: 1].
+                    </p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">
+                        <strong>Aplicación en Stand:</strong> Chasis rígido perimetral del stand de 6 a 8 m² para rápido ensamble sin desperdicio de material[cite: 1].
+                    </p>
                     <div class="topic-svg-wrapper">
                         <svg width="100%" height="100%" viewBox="0 0 160 100">
-                            <polygon points="80,20 100,30 100,60 80,70 60,60 60,30" fill="none" stroke="#1A1A18" stroke-width="2"/>
-                            <line x1="100" y1="45" x2="140" y2="45" stroke="#C86D51" stroke-width="3"/>
-                            <line x1="60" y1="45" x2="20" y2="45" stroke="#C86D51" stroke-width="3"/>
+                            <polygon points="80,15 102,26 102,58 80,69 58,58 58,26" fill="none" stroke="#1A1A18" stroke-width="2.5"/>
+                            <line x1="102" y1="42" x2="145" y2="42" stroke="#C86D51" stroke-width="3.5"/>
+                            <line x1="58" y1="42" x2="15" y2="42" stroke="#C86D51" stroke-width="3.5"/>
+                            <circle cx="80" cy="42" r="5" fill="#4A5D4E"/>
                         </svg>
                     </div>
                 </div>
@@ -508,12 +327,38 @@
                 <!-- 6. Escenarios Rodantes -->
                 <div class="topic-card">
                     <h4>6. Escenarios Rodantes</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Plataformas móviles integradas sobre ruedas operativas que permiten reconfigurar la espacialidad del evento en minutos.</p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
+                        <strong>Principio:</strong> Plataformas modulares montadas sobre ruedas industriales multidireccionales con sistema de freno neumático[cite: 1].
+                    </p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">
+                        <strong>Aplicación en Stand:</strong> Facilita el desplazamiento itinerante continuo entre el Campus Rodrigo Noguera Laborde y ferias externas[cite: 1].
+                    </p>
                     <div class="topic-svg-wrapper">
                         <svg width="100%" height="100%" viewBox="0 0 160 100">
-                            <rect x="30" y="40" width="100" height="25" fill="#E8E3D9" stroke="#1A1A18" stroke-width="2" rx="3"/>
-                            <circle cx="50" cy="73" r="8" fill="#1A1A18"/>
-                            <circle cx="110" cy="73" r="8" fill="#1A1A18"/>
+                            <rect x="25" y="35" width="110" height="28" fill="#E8E3D9" stroke="#1A1A18" stroke-width="2" rx="4"/>
+                            <circle cx="45" cy="74" r="9" fill="#1A1A18"/>
+                            <circle cx="45" cy="74" r="3" fill="#FAF8F5"/>
+                            <circle cx="115" cy="74" r="9" fill="#1A1A18"/>
+                            <circle cx="115" cy="74" r="3" fill="#FAF8F5"/>
+                            <line x1="15" y1="83" x2="145" y2="83" stroke="#C86D51" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 7. Arquitectura Efímera Ferial -->
+                <div class="topic-card">
+                    <h4>7. Instalaciones Corporativas Feriales</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
+                        <strong>Principio:</strong> Integración sistémica de espacialidad, iluminación gráfica, señalética y recorridos para comunicación de marca de alto impacto[cite: 1].
+                    </p>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">
+                        <strong>Aplicación en Stand:</strong> Síntesis general del stand "PULSO DIGITAL" alineada al lema "Profesionalízate con nosotros"[cite: 1].
+                    </p>
+                    <div class="topic-svg-wrapper">
+                        <svg width="100%" height="100%" viewBox="0 0 160 100">
+                            <rect x="20" y="20" width="120" height="60" fill="none" stroke="#1A1A18" stroke-width="2" stroke-dasharray="4 4"/>
+                            <rect x="40" y="35" width="80" height="45" fill="#E8E3D9" stroke="#4A5D4E" stroke-width="2"/>
+                            <polygon points="80,10 110,35 50,35" fill="#C86D51"/>
                         </svg>
                     </div>
                 </div>
@@ -521,27 +366,26 @@
         </article>
     </div>
 
-    <!-- Footer -->
     <footer>
-        <p>Bitácora Digital • Semana 12 | Diseño Digital — Universidad Sergio Arboleda (2026)</p>
+        <p>Bitácora Digital • Semana 12 | Escuela de Comunicación e Industrias Digitales — Universidad Sergio Arboleda (2026)[cite: 1]</p>
     </footer>
 </div>
 
 <script>
-    // Gestión de Pestañas
-    function switchTab(tabId) {
+    function switchTab(tabId, evt) {
         document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
         
         document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
+        if (evt && evt.currentTarget) {
+            evt.currentTarget.classList.add('active');
+        }
 
         if(tabId === 'tab-concepto') {
             setTimeout(initCanvas, 50);
         }
     }
 
-    // Canvas Interactivo para Esquema Básico Espacial
     function initCanvas() {
         const canvas = document.getElementById('schematicCanvas');
         if(!canvas) return;
@@ -554,12 +398,10 @@
         const w = canvas.width;
         const h = canvas.height;
 
-        // Limpiar lienzo
         ctx.fillStyle = '#141614';
         ctx.fillRect(0, 0, w, h);
 
-        // Grilla técnica de fondo
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
         ctx.lineWidth = 1;
         const gridSize = 20;
         for(let x=0; x<w; x+=gridSize) {
@@ -569,8 +411,37 @@
             ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
         }
 
-        // Dibujo del Perímetro de 6-8 m² (3.0m x 2.5m escala)
-        const rectX = 180, rectY = 90, rectW = 340, rectH = 240;
+        const rectX = 200, rectY = 100, rectW = 350, rectH = 240;
+
+        if (mode === 'mandala') {
+            const cx = rectX + rectW / 2;
+            const cy = rectY + rectH / 2;
+            
+            ctx.strokeStyle = '#C86D51';
+            ctx.lineWidth = 1.5;
+            for(let r = 20; r <= 150; r += 22) {
+                ctx.beginPath();
+                ctx.arc(cx, cy, r, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+
+            const petals = 16;
+            for(let i = 0; i < petals; i++) {
+                const angle = (i * Math.PI * 2) / petals;
+                ctx.strokeStyle = i % 2 === 0 ? '#4A5D4E' : '#E8E3D9';
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.lineTo(cx + Math.cos(angle) * 140, cy + Math.sin(angle) * 140);
+                ctx.stroke();
+            }
+
+            ctx.fillStyle = '#F7F5F0';
+            ctx.font = '13px "Syne"';
+            ctx.textAlign = 'center';
+            ctx.fillText('MANDALA SENSORIAL DE EXPANSIÓN DIGITAL', cx, cy - 160);
+            ctx.textAlign = 'left';
+            return;
+        }
 
         ctx.strokeStyle = '#E8E3D9';
         ctx.lineWidth = 2;
@@ -578,14 +449,12 @@
         ctx.strokeRect(rectX, rectY, rectW, rectH);
         ctx.setLineDash([]);
 
-        // Cotas Dimensionales
-        ctx.fillStyle = '#6E6E6A';
+        ctx.fillStyle = '#8E8E8A';
         ctx.font = '12px "Space Grotesk"';
-        ctx.fillText('3.00 m (Largo)', rectX + rectW/2 - 35, rectY - 12);
-        ctx.fillText('2.50 m (Ancho)', rectX + rectW + 12, rectY + rectH/2);
-        ctx.fillText('Área Efectiva: 7.50 m²', rectX + 10, rectY + rectH + 25);
+        ctx.fillText('3.00 m (Largo)', rectX + rectW/2 - 35, rectY - 14);
+        ctx.fillText('2.50 m (Ancho)', rectX + rectW + 14, rectY + rectH/2);
+        ctx.fillText('Área Efectiva: 7.50 m² (Límite: 6-8 m²)', rectX + 10, rectY + rectH + 28);
 
-        // Estructura Modulada Octanorm (Nodos en Esquinas)
         const nodes = [
             {x: rectX, y: rectY}, {x: rectX+rectW, y: rectY},
             {x: rectX, y: rectY+rectH}, {x: rectX+rectW, y: rectY+rectH}
@@ -593,48 +462,43 @@
         nodes.forEach(n => {
             ctx.fillStyle = '#C86D51';
             ctx.beginPath();
-            ctx.arc(n.x, n.y, 6, 0, Math.PI*2);
+            ctx.arc(n.x, n.y, 7, 0, Math.PI*2);
             ctx.fill();
         });
 
-        // Contenido por Modos
         if(mode === 'default' || mode === 'flow') {
-            // Línea de Flujo de Entrada / Recorrido
             ctx.strokeStyle = '#4A5D4E';
-            ctx.lineWidth = 3;
+            ctx.lineWidth = 3.5;
             ctx.beginPath();
-            ctx.moveTo(rectX - 40, rectY + rectH/2);
-            ctx.quadraticCurveTo(rectX + 100, rectY + 60, rectX + rectW/2, rectY + rectH/2);
-            ctx.quadraticCurveTo(rectX + 240, rectY + 180, rectX + rectW + 40, rectY + rectH/2);
+            ctx.moveTo(rectX - 50, rectY + rectH/2);
+            ctx.quadraticCurveTo(rectX + 110, rectY + 50, rectX + rectW/2, rectY + rectH/2);
+            ctx.quadraticCurveTo(rectX + 240, rectY + 190, rectX + rectW + 50, rectY + rectH/2);
             ctx.stroke();
 
-            // Flechas de dirección
             ctx.fillStyle = '#4A5D4E';
             ctx.font = '11px "Space Grotesk"';
-            ctx.fillText('ACCESO ESTUDIANTES →', rectX - 120, rectY + rectH/2 + 4);
+            ctx.fillText('ACCESO ESTUDIANTES →', rectX - 140, rectY + rectH/2 + 4);
         }
 
         if(mode === 'default' || mode === 'interaction') {
-            // Zona Central de Interacción Sensorial
-            ctx.fillStyle = 'rgba(200, 109, 81, 0.15)';
+            ctx.fillStyle = 'rgba(200, 109, 81, 0.18)';
             ctx.strokeStyle = '#C86D51';
-            ctx.lineWidth = 1.5;
+            ctx.lineWidth = 2;
             ctx.beginPath();
-            ctx.arc(rectX + rectW/2, rectY + rectH/2, 55, 0, Math.PI*2);
+            ctx.arc(rectX + rectW/2, rectY + rectH/2, 60, 0, Math.PI*2);
             ctx.fill();
             ctx.stroke();
 
             ctx.fillStyle = '#F7F5F0';
-            ctx.font = '12px "Syne"';
+            ctx.font = '13px "Syne"';
             ctx.textAlign = 'center';
             ctx.fillText('NÚCLEO PULSO', rectX + rectW/2, rectY + rectH/2 - 4);
             ctx.font = '10px "Space Grotesk"';
-            ctx.fillText('(Interfaz Sensorial)', rectX + rectW/2, rectY + rectH/2 + 12);
+            ctx.fillText('(Interfaz Sensorial Gestual)', rectX + rectW/2, rectY + rectH/2 + 14);
             ctx.textAlign = 'left';
         }
     }
 
-    // Inicializar al cargar ventana
     window.onload = function() {
         initCanvas();
     };
