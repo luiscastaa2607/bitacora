@@ -1,3 +1,8 @@
+He actualizado el código para **eliminar por completo todas las etiquetas de criterios y puntajes de la rúbrica** (como "Criterio 1: Concepto de Alto Impacto — Valor 25%", etc.) que aparecían en la interfaz, dejando el diseño completamente limpio, profesional y enfocado únicamente en el contenido de la bitácora.
+
+Aquí tienes el archivo HTML corregido y listo para copiar:
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -62,8 +67,6 @@
         .topic-card h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--bg-dark); margin-bottom: 14px; }
         .topic-svg-wrapper { width: 100%; height: 180px; background-color: var(--bg-main); border-radius: 8px; margin: 20px 0; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 12px; border: 1px solid var(--border-light); }
 
-        .badge-score { display: inline-flex; align-items: center; gap: 6px; background-color: rgba(74, 93, 78, 0.12); color: var(--accent-oliva); font-family: var(--font-mono); font-size: 0.82rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; margin-bottom: 16px; }
-
         footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border-light); text-align: center; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono); }
     </style>
 </head>
@@ -73,24 +76,24 @@
     <header class="journal-header">
         <span class="meta-tag">Universidad Sergio Arboleda • Escuela de Comunicación e Industrias Digitales</span>
         <h1 class="journal-title">PULSO DIGITAL — Módulo Experiencial Efímero</h1>
-        <p class="journal-subtitle">Entrega de Proyecto Final (Semana 12): Registro exhaustivo en bitácora digital del concepto estratégico, esquema básico dimensional (6-8 m²) y marco conceptual de investigación.</p>
+        <p class="journal-subtitle">Entrega de Proyecto Final (Semana 12): Registro en bitácora digital del concepto estratégico, esquema básico dimensional (6-8 m²) y marco conceptual de investigación.</p>
         
         <div class="project-context-box">
             <div class="context-item">
                 <span>Pretexto Académico</span>
-                <strong>"Profesionalízate con nosotros"</strong>
+                <strong>"Profesionalízate con nosotros"</strong>[cite: 1]
             </div>
             <div class="context-item">
                 <span>Público Objetivo</span>
-                <strong>Estudiantes Grado 11° (Región Caribe)</strong>
+                <strong>Estudiantes Grado 11° (Región Caribe)</strong>[cite: 1]
             </div>
             <div class="context-item">
                 <span>Espacialidad Requerida</span>
-                <strong>Área de 6.0 m² a 8.0 m² (Itinerante)</strong>
+                <strong>Área de 6.0 m² a 8.0 m² (Itinerante)</strong>[cite: 1]
             </div>
             <div class="context-item">
                 <span>Ubicación Inicial</span>
-                <strong>Campus Rodrigo Noguera Laborde</strong>
+                <strong>Campus Rodrigo Noguera Laborde</strong>[cite: 1]
             </div>
         </div>
     </header>
@@ -104,12 +107,11 @@
     <!-- SECCIÓN 1: CONCEPTO Y ESQUEMA BÁSICO -->
     <div id="tab-concepto" class="tab-content active">
         <article class="section-card">
-            <span class="badge-score">Criterio 1: Concepto de Alto Impacto — Valor 25% (Puntaje Máximo: 5.0)</span>
             <h2 class="section-title">Proposición Conceptual del Producto-Experiencia</h2>
-            <p style="color: var(--text-muted); margin-bottom: 12px;"><strong>Párrafo Conceptual Unificado (Redacción de Origen Etimológico y Pensamiento Estratégico):</strong></p>
+            <p style="color: var(--text-muted); margin-bottom: 12px;"><strong>Párrafo Conceptual Unificado:</strong></p>
             
             <div class="concept-highlight">
-                Concebido bajo la premisa de transformar la divulgación vocacional tradicional en un ecosistema vivo de interacción sensorial, <strong>PULSO DIGITAL</strong> se erige como una instalación itinerante e inmersiva de 6 a 8 m² que sintetiza la sustancia creativa del Programa de Diseño Digital de la Universidad Sergio Arboleda mediante una arquitectura efímera fotosensible y adaptable. El proyecto articula una envolvente escualizable apoyada en cubiertas tensadas y modulación Octanorm que reacciona lumínica y gestualmente a la presencia del visitante, configurando un diálogo directo donde el estudiante de grado 11° deja de ser un espectador pasivo para convertirse en el co-creador de una pieza multimedia en tiempo real. Esta propuesta trasciende los convencionalismos feriales al hibridar la calidez tectónica del diseño escénico con la inmediatez del código interactivo, proyectando un paradigma singular en la relación sujeto-objeto-contexto que posiciona al Diseño Digital no solo como una carrera universitaria, sino como el motor creativo que da forma a la cultura contemporánea.
+                Concebido bajo la premisa de transformar la divulgación vocacional tradicional en un ecosistema vivo de interacción sensorial, <strong>PULSO DIGITAL</strong> se erige como una instalación itinerante e inmersiva de 6 a 8 m² que sintetiza la sustancia creativa del Programa de Diseño Digital de la Universidad Sergio Arboleda mediante una arquitectura efímera fotosensible y adaptable[cite: 1]. El proyecto articula una envolvente escualizable apoyada en cubiertas tensadas y modulación Octanorm que reacciona lumínica y gestualmente a la presencia del visitante[cite: 1], configurando un diálogo directo donde el estudiante de grado 11° deja de ser un espectador pasivo para convertirse en el co-creador de una pieza multimedia en tiempo real[cite: 1]. Esta propuesta trasciende los convencionalismos feriales al hibridar la calidez tectónica del diseño escénico con la inmediatez del código interactivo, proyectando un paradigma singular en la relación sujeto-objeto-contexto que posiciona al Diseño Digital no solo como una carrera universitaria, sino como el motor creativo que da forma a la cultura contemporánea[cite: 1].
             </div>
 
             <div style="margin-top: 24px; background: var(--bg-main); padding: 20px; border-radius: 8px;">
@@ -121,10 +123,9 @@
         </article>
 
         <article class="section-card">
-            <span class="badge-score">Criterio 2: Esquema Básico Visual — Valor 25% (Puntaje Máximo: 5.0)</span>
             <h2 class="section-title">Esquema Básico Espacial y Representación Diagramática</h2>
             <p style="color: var(--text-muted); margin-bottom: 16px;">
-                Composición gráfica formal a escala que expresa de baja complejidad la geometría, el contraste, la proporción y los flujos de recorrido del módulo itinerante dentro de la limitante de 6 a 8 m²[cite: 1]. Utiliza el lienzo interactivo a continuación para alternar entre las capas analíticas del esquema.
+                Composición gráfica formal a escala que expresa la geometría, el contraste, la proporción y los flujos de recorrido del módulo itinerante dentro de la limitante de 6 a 8 m²[cite: 1]. Utiliza el lienzo interactivo a continuación para alternar entre las capas analíticas del esquema.
             </p>
 
             <div class="canvas-container">
@@ -153,7 +154,6 @@
     <!-- SECCIÓN 2: CULTURA Y DISEÑO DIGITAL -->
     <div id="tab-cultura" class="tab-content">
         <article class="section-card">
-            <span class="badge-score">Criterio 3: Información de Cultura y Diseño Digital — Valor 25% (Puntaje Máximo: 5.0)</span>
             <h2 class="section-title">Marco de Investigación: Cultura y Carrera de Diseño Digital</h2>
 
             <div style="margin-bottom: 32px; font-size: 1rem; color: var(--text-muted);">
@@ -161,7 +161,6 @@
             </div>
 
             <div class="topics-grid">
-                <!-- Tarjeta 1: Cultura Digital -->
                 <div class="topic-card">
                     <div>
                         <h4>1. La Cultura Digital</h4>
@@ -187,7 +186,6 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta 2: Diseño Digital U. Sergio Arboleda -->
                 <div class="topic-card">
                     <div>
                         <h4>2. Diseño Digital en la U. Sergio Arboleda</h4>
@@ -222,14 +220,12 @@
     <!-- SECCIÓN 3: ARQUITECTURA EFÍMERA -->
     <div id="tab-arquitectura" class="tab-content">
         <article class="section-card">
-            <span class="badge-score">Criterio 4: Síntesis de Temas de Arquitectura Efímera — Valor 25% (Puntaje Máximo: 5.0)</span>
             <h2 class="section-title">Análisis de los 7 Sistemas Constructivos Efímeros</h2>
             <p style="color: var(--text-muted); margin-bottom: 24px;">
                 Síntesis técnica y representación gráfica de las tipologías estructurales aplicadas al diseño de instalaciones feriales e itinerantes[cite: 1].
             </p>
 
             <div class="topics-grid">
-                <!-- 1. Estructuras Neumáticas -->
                 <div class="topic-card">
                     <h4>1. Estructuras Neumáticas</h4>
                     <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
@@ -247,7 +243,6 @@
                     </div>
                 </div>
 
-                <!-- 2. Escualizables / Abatibles -->
                 <div class="topic-card">
                     <h4>2. Estructuras Escualizables / Abatibles</h4>
                     <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
@@ -266,7 +261,6 @@
                     </div>
                 </div>
 
-                <!-- 3. Cubiertas de Membrana -->
                 <div class="topic-card">
                     <h4>3. Cubiertas de Membranas</h4>
                     <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
@@ -284,7 +278,6 @@
                     </div>
                 </div>
 
-                <!-- 4. Tensgrity -->
                 <div class="topic-card">
                     <h4>4. Estructuras Tensegrity</h4>
                     <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
@@ -305,7 +298,6 @@
                     </div>
                 </div>
 
-                <!-- 5. Sistema Octanorm -->
                 <div class="topic-card">
                     <h4>5. Sistema Octanorm</h4>
                     <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
@@ -324,7 +316,6 @@
                     </div>
                 </div>
 
-                <!-- 6. Escenarios Rodantes -->
                 <div class="topic-card">
                     <h4>6. Escenarios Rodantes</h4>
                     <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
@@ -345,7 +336,6 @@
                     </div>
                 </div>
 
-                <!-- 7. Arquitectura Efímera Ferial -->
                 <div class="topic-card">
                     <h4>7. Instalaciones Corporativas Feriales</h4>
                     <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 10px;">
@@ -506,3 +496,5 @@
 
 </body>
 </html>
+
+```
